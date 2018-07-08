@@ -6,6 +6,29 @@ import Header from '../components/header/header'
 import './index.styl'
 
 class Layout extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      currentlyPlaying: null,
+      src: '',
+    }
+
+    this.playAudio = this.playAudio.bind(this)
+    this.setPlaying = this.setPlaying.bind(this)
+  }
+
+  setPlaying(id, src) {
+    this.setState({
+      currentlyPlaying: id,
+      src,
+    })
+  }
+
+  playAudio() {
+    this.audioRef.play()
+  }
+
   render() {
     const { children, data } = this.props
     return (
@@ -22,8 +45,18 @@ class Layout extends Component {
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <div>
-          {children({ ...this.props, socials: data.site.siteMetadata.socials })}
+          {children({
+            ...this.props,
+            socials: data.site.siteMetadata.socials,
+            ...this.state,
+            setPlaying: this.setPlaying,
+          })}
         </div>
+        <audio
+          src={this.state.src}
+          ref={ref => (this.audioRef = ref)}
+          onCanPlay={this.playAudio}
+        />
       </div>
     )
   }
