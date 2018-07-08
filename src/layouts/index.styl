@@ -1,0 +1,118 @@
+@import "nib"
+
+global-reset()
+
+@import "../styles/_typography.styl"
+@import "../styles/_masthead.styl"
+@import "../styles/_section.styl"
+@import "../styles/_footer.styl"
+
+html::before,
+html::after
+  display: none !important
+
+body
+  background-color: var(--background)
+
+.outer-container,
+.inner-container
+  width: 100%
+  max-width: 374px
+  margin: 0 auto
+
+
+@media screen and (min-width: 420px)
+  .outer-container
+    width: 90%
+    max-width: 100%
+
+  .inner-container
+    width: 100%
+    max-width: 732px
+    margin: 0 auto
+
+.Social
+  &__Belt
+    display: flex
+    flex-direction: column
+
+    @media screen and (min-width: 420px)
+      flex-direction: row
+
+    &__Item
+      width: 100vw
+      height: 270px
+      display: flex
+      justify-content: center
+      align-items: center
+
+      @media screen and (min-width: 420px)
+        width: 25vw
+        filter: blur(2px)
+        position: relative
+
+      &::after
+        display: none
+
+        @media screen and (min-width: 420px)
+          display: block
+          content: ""
+          background-color: rgba(39, 39, 39, 0.24)
+          position: absolute
+          top: 0
+          left: 0
+          right: 0
+          bottom: 0
+
+      &:hover
+        filter: blur(0)
+
+        &::after
+          display: none
+
+      &.Stitcher
+        background-color: var(--yellow)
+
+      &.Spotify
+        background-color: var(--red)
+
+      &.iTunes
+        background-color: var(--black)
+
+      &.GooglePlay
+        background-color: var(--green)
+
+.AboutUs
+  background-image: url('../images/about-us-bkg.jpg')
+  background-size: cover
+  background-position: center center
+  padding-bottom: 2.5rem
+
+.Host
+  display: flex
+  margin-bottom: 2rem
+
+  &__Information
+    color: var(--white)
+
+    &__Name
+      font-size: 1.5rem
+      letter-spacing: 1px
+      line-height: 1
+      margin-bottom: 0.5rem
+
+  &.is-right
+    flex-direction: row-reverse
+
+    .Avatar
+      margin-right: 0
+      margin-left: 1rem
+
+    .Host__Information
+      text-align: right
+
+.Avatar
+  margin-right: 1rem
+  height: 8rem
+  width: 8rem
+  border-radius: 50%

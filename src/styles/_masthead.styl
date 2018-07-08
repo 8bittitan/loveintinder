@@ -1,0 +1,42 @@
+@import "./_vars.styl"
+
+.Masthead
+  height: 336px
+  display: grid
+  grid-template-columns: 1fr
+
+  @media screen and (min-width: 420px)
+    height: 500px
+    grid-template-columns: 90px 1fr
+
+  &__Social
+    background-color: var(--black)
+    padding: 119px 0
+    display: none
+
+    @media screen and (min-width: 420px)
+      display: block
+
+    &__Container
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      align-items: center
+      height: 175px
+
+    img
+      width: 2rem
+
+  &__Content
+    background-image: url('../images/masthead-bkg-mobile.jpg')
+    background-size: cover
+    background-position: center center
+    color: var(--white)
+    padding: 106px 19px 2rem
+
+    @media screen and (min-width: 420px)
+      background-image: url('../images/masthead-bkg.jpg')
+      padding: 200px 175px 2rem 85px
+
+      p
+        width: 75%
