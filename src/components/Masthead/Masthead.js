@@ -26,7 +26,7 @@ const Masthead = ({ episode, socials, selectEpisode }) => {
       </div>
       <div className="Masthead__Content">
         <h1>{episode.title}</h1>
-        <p>{episode.description}</p>
+        <p>{episode.contentSnippet}</p>
         <PlayButton selectEpisode={setCurrentEpisode} />
       </div>
     </div>
@@ -34,7 +34,11 @@ const Masthead = ({ episode, socials, selectEpisode }) => {
 }
 
 Masthead.propTypes = {
-  episode: PropTypes.shape().isRequired,
+  episode: PropTypes.shape({
+    guid: PropTypes.string,
+    title: PropTypes.string,
+    contentSnippet: PropTypes.string,
+  }).isRequired,
   socials: PropTypes.shape().isRequired,
   selectEpisode: PropTypes.func.isRequired,
 }
