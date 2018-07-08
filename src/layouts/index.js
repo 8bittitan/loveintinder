@@ -14,6 +14,7 @@ class Layout extends Component {
           title={data.site.siteMetadata.title}
           meta={data.site.siteMetadata.meta}
         >
+          <html lang="en" />
           <link
             href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Yesteryear"
             rel="stylesheet"
