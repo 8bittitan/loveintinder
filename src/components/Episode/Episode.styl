@@ -12,6 +12,14 @@
 
   &__Play
     margin-right: 1rem
+    cursor: pointer
+
+    &:hover
+      path
+        fill: var(--yellow)
+
+      circle
+        stroke: var(--yellow)
 
   &__Information
     width: 80%
@@ -30,3 +38,9 @@
 
   &__EQ
     margin-left: auto
+
+  &.is-playing
+    .Episode__EQ
+      rect
+        fill: var(--red)
+    

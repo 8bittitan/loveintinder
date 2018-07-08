@@ -11,8 +11,9 @@
     height: 100%
 
   &__Logo
-    width: 100%
-    max-width: 6rem
+    svg
+      width: 6rem
+      height: 6rem
 
   &__Social
     display: flex
@@ -21,6 +22,11 @@
     align-items: center
     width: 10rem
 
-    img
-      width: 100%
-      max-width: 2rem
+    a
+      svg
+        width: 2rem
+        height: 2rem
+
+      &:hover
+        svg
+          fill: var(--yellow)

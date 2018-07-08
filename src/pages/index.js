@@ -2,17 +2,14 @@ import React from 'react'
 import Img from 'gatsby-image'
 
 import EpisodeList from '../components/EpisodeList/EpisodeList'
+import Icon from '../components/Icon/Icon'
 import Masthead from '../components/Masthead/Masthead'
 import Social from '../components/Social/Social'
 
-import Twitter from '../images/003-twitter.svg'
-import Instagram from '../images/002-instagram.svg'
-import Facebook from '../images/001-facebook.svg'
 import Stitcher from '../images/stitcher.svg'
 import Spotify from '../images/spotify.svg'
 import iTunes from '../images/itunes.svg'
 import GooglePlay from '../images/google-play.svg'
-import Logo from '../images/logo.svg'
 
 const IndexPage = ({ data, socials }) => {
   const latestEpisode = data.allRssFeed.edges[0].node.childrenRssFeedItem[0]
@@ -110,23 +107,19 @@ const IndexPage = ({ data, socials }) => {
       {/* START: Footer */}
       <div className="Footer">
         <div className="outer-container Footer__Container">
-          <a href="/">
-            <img
-              className="Footer__Logo"
-              src={Logo}
-              alt="Love in Tinder logo"
-            />
+          <a href="/" className="Footer__Logo">
+            <Icon type="logo" />
           </a>
 
           <div className="Footer__Social">
             <a href={socials.twitter}>
-              <img src={Twitter} alt="Share on Twitter" />
+              <Icon type="twitter" />
             </a>
             <a href={socials.instagram}>
-              <img src={Instagram} alt="Share on Instagram" />
+              <Icon type="instagram" />
             </a>
             <a href={socials.facebook}>
-              <img src={Facebook} alt="Share on Facebook" />
+              <Icon type="facebook" />
             </a>
           </div>
         </div>

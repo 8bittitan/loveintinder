@@ -1,9 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
+import Icon from '../Icon/Icon'
 import ScrollLink from '../ScrollLink/ScrollLink'
-
-import logo from '../../images/logo-full.svg'
 
 import './header.styl'
 
@@ -11,7 +10,7 @@ const Header = () => (
   <header className="Header">
     <div className="outer-container Header__Container">
       <Link to="/" className="Header__Logo">
-        <img src={logo} alt="Love in Tinder" />
+        <Icon type="logo-full" />
       </Link>
 
       <div className="Header__Nav">
