@@ -11,7 +11,7 @@ import Spotify from '../images/spotify.svg'
 import iTunes from '../images/itunes.svg'
 import GooglePlay from '../images/google-play.svg'
 
-const IndexPage = ({ data, socials }) => {
+const IndexPage = ({ data, socials, currentlyPlaying, setPlaying }) => {
   const latestEpisode = data.allRssFeed.edges[0].node.childrenRssFeedItem[0]
   const episodes = data.allRssFeed.edges[0].node.childrenRssFeedItem
 
@@ -19,9 +19,9 @@ const IndexPage = ({ data, socials }) => {
     <div>
       {/* START: Masthead */}
       <Masthead
-        title={latestEpisode.title}
-        description={latestEpisode.contentSnippet}
+        episode={latestEpisode}
         socials={socials}
+        selectEpisode={setPlaying}
       />
       {/* END: Masthead */}
 
@@ -30,7 +30,11 @@ const IndexPage = ({ data, socials }) => {
         <div className="section PastEpisodes" id="episodes">
           <h2 className="SectionTitle">Past Episodes</h2>
 
-          <EpisodeList episodes={episodes} />
+          <EpisodeList
+            episodes={episodes}
+            setPlayingEpisode={setPlaying}
+            currentlyPlaying={currentlyPlaying}
+          />
         </div>
         {/* END: Past Episodes */}
       </div>

@@ -5,9 +5,19 @@ import Episode from '../Episode/Episode'
 
 import './EpisodeList.styl'
 
-const EpisodeList = ({ episodes }) => (
+const EpisodeList = ({ episodes, setPlayingEpisode, currentlyPlaying }) => (
   <div className="EpisodeList">
-    {episodes.map(episode => <Episode episode={episode} key={episode.guid} />)}
+    {episodes.map(episode => {
+      episode.isPlaying = episode.guid === currentlyPlaying
+
+      return (
+        <Episode
+          playEpisode={setPlayingEpisode}
+          episode={episode}
+          key={episode.guid}
+        />
+      )
+    })}
   </div>
 )
 
@@ -18,6 +28,7 @@ EpisodeList.propTypes = {
       description: PropTypes.string,
     }),
   ).isRequired,
+  setPlayingEpisode: PropTypes.func.isRequired,
 }
 
 export default EpisodeList
