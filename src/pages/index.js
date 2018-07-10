@@ -5,12 +5,7 @@ import EpisodeList from '../components/EpisodeList/EpisodeList'
 import Icon from '../components/Icon/Icon'
 import Masthead from '../components/Masthead/Masthead'
 import Social from '../components/Social/Social'
-
-// TODO: Move these to Icon component
-import Stitcher from '../images/stitcher.svg'
-import Spotify from '../images/spotify.svg'
-import iTunes from '../images/itunes.svg'
-import GooglePlay from '../images/google-play.svg'
+import SocialIcon from '../components/Icon/SocialIcon'
 
 // TODO: Add in some damn propTypes
 const IndexPage = ({
@@ -56,25 +51,20 @@ const IndexPage = ({
         </div>
 
         <div className="Social__Belt">
-          {/* TODO: Move to use the site data for these */}
           <Social
             link="https://www.stitcher.com/podcast/winger-studios/love-in-tinder"
-            image={Stitcher}
             type="Stitcher"
           />
           <Social
             link="https://open.spotify.com/show/0C6tdOjvuVM75aSDYn0LKC?si=rj7kzY5iRZOnbvykrFDVpw"
-            image={Spotify}
             type="Spotify"
           />
           <Social
             link="https://itunes.apple.com/us/podcast/love-in-tinder/id400904245?mt=2"
-            image={iTunes}
             type="iTunes"
           />
           <Social
             link="https://play.google.com/music/listen#/ps/Idowf6cgxove3eytpbdp3xg5mvu"
-            image={GooglePlay}
             type="GooglePlay"
           />
         </div>
@@ -128,13 +118,13 @@ const IndexPage = ({
 
           <div className="Footer__Social">
             <a href={socials.twitter}>
-              <Icon type="twitter" />
+              <SocialIcon type="twitter" />
             </a>
             <a href={socials.instagram}>
-              <Icon type="instagram" />
+              <SocialIcon type="instagram" />
             </a>
             <a href={socials.facebook}>
-              <Icon type="facebook" />
+              <SocialIcon type="facebook" />
             </a>
           </div>
         </div>
