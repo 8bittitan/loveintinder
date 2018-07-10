@@ -54,7 +54,7 @@ class Layout extends Component {
         >
           <html lang="en" />
           <link
-            href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Yesteryear"
+            href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Bevan"
             rel="stylesheet"
           />
         </Helmet>
