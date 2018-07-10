@@ -6,12 +6,20 @@ import Icon from '../components/Icon/Icon'
 import Masthead from '../components/Masthead/Masthead'
 import Social from '../components/Social/Social'
 
+// TODO: Move these to Icon component
 import Stitcher from '../images/stitcher.svg'
 import Spotify from '../images/spotify.svg'
 import iTunes from '../images/itunes.svg'
 import GooglePlay from '../images/google-play.svg'
 
-const IndexPage = ({ data, socials, currentlyPlaying, setPlaying }) => {
+// TODO: Add in some damn propTypes
+const IndexPage = ({
+  data,
+  socials,
+  currentlyPlaying,
+  setPlaying,
+  pausePlaying,
+}) => {
   const latestEpisode = data.allRssFeed.edges[0].node.childrenRssFeedItem[0]
   const episodes = data.allRssFeed.edges[0].node.childrenRssFeedItem
 
@@ -22,6 +30,7 @@ const IndexPage = ({ data, socials, currentlyPlaying, setPlaying }) => {
         episode={latestEpisode}
         socials={socials}
         selectEpisode={setPlaying}
+        isPlaying={currentlyPlaying === latestEpisode.guid}
       />
       {/* END: Masthead */}
 
@@ -34,6 +43,7 @@ const IndexPage = ({ data, socials, currentlyPlaying, setPlaying }) => {
             episodes={episodes}
             setPlayingEpisode={setPlaying}
             currentlyPlaying={currentlyPlaying}
+            pauseCurrentEpisode={pausePlaying}
           />
         </div>
         {/* END: Past Episodes */}
@@ -46,6 +56,7 @@ const IndexPage = ({ data, socials, currentlyPlaying, setPlaying }) => {
         </div>
 
         <div className="Social__Belt">
+          {/* TODO: Move to use the site data for these */}
           <Social
             link="https://www.stitcher.com/podcast/winger-studios/love-in-tinder"
             image={Stitcher}
@@ -144,6 +155,9 @@ export const query = graphql`
             contentSnippet
             enclosure {
               url
+            }
+            itunes {
+              duration
             }
             guid
             title

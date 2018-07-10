@@ -5,7 +5,12 @@ import Episode from '../Episode/Episode'
 
 import './EpisodeList.styl'
 
-const EpisodeList = ({ episodes, setPlayingEpisode, currentlyPlaying }) => (
+const EpisodeList = ({
+  episodes,
+  setPlayingEpisode,
+  currentlyPlaying,
+  pauseCurrentEpisode,
+}) => (
   <div className="EpisodeList">
     {episodes.map(episode => {
       episode.isPlaying = episode.guid === currentlyPlaying
@@ -13,6 +18,7 @@ const EpisodeList = ({ episodes, setPlayingEpisode, currentlyPlaying }) => (
       return (
         <Episode
           playEpisode={setPlayingEpisode}
+          pauseEpisode={pauseCurrentEpisode}
           episode={episode}
           key={episode.guid}
         />

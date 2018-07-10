@@ -1,7 +1,101 @@
 import React from 'react'
 
-const Icon = ({ type }) => {
+const Icon = ({ type, onClick }) => {
   switch (type) {
+    case 'EQ': {
+      return (
+        <svg
+          width="25"
+          height="14"
+          viewBox="0 0 25 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="Episode__EQ"
+        >
+          <rect width="5" height="13" transform="translate(0 1)" />
+          <rect width="5" height="7" transform="translate(5 7)" />
+          <rect width="5" height="7" transform="translate(20 7)" />
+          <rect width="5" height="10" transform="translate(10 4)" />
+          <rect width="5" height="14" transform="translate(15)" />
+        </svg>
+      )
+    }
+    case 'play': {
+      return (
+        <svg
+          width="19"
+          height="21"
+          viewBox="0 0 19 21"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M11.7679 3C12.5378 1.66667 14.4623 1.66667 15.2321 3L23.4593 17.25C24.2291 18.5833 23.2668 20.25 21.7272 20.25H5.27276C3.73316 20.25 2.77091 18.5833 3.54071 17.25L11.7679 3Z"
+            transform="translate(21 -3) rotate(90)"
+            fill="#F1F1F1"
+          />
+        </svg>
+      )
+    }
+    case 'pause': {
+      return (
+        <svg
+          width="27"
+          height="27"
+          viewBox="0 0 27 27"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="10.8" height="27" fill="#f1f1f1" />
+          <rect
+            width="10.8"
+            height="27"
+            transform="translate(16.2)"
+            fill="#f1f1f1"
+          />
+        </svg>
+      )
+    }
+    case 'pause-outline': {
+      return (
+        <svg
+          width="27"
+          height="27"
+          viewBox="0 0 27 27"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="Episode__Pause"
+          onClick={onClick}
+        >
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M13.5 26C20.4036 26 26 20.4036 26 13.5C26 6.59644 20.4036 1 13.5 1C6.59644 1 1 6.59644 1 13.5C1 20.4036 6.59644 26 13.5 26ZM13.5 27C20.9558 27 27 20.9558 27 13.5C27 6.04416 20.9558 0 13.5 0C6.04413 0 0 6.04416 0 13.5C0 20.9558 6.04413 27 13.5 27ZM8 8H12V19H8V8ZM18 8H14V19H18V8Z"
+            fill="#C5C6B7"
+          />
+        </svg>
+      )
+    }
+    case 'play-outline': {
+      return (
+        <svg
+          width="27"
+          height="27"
+          viewBox="0 0 27 27"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="Episode__Play"
+          onClick={onClick}
+        >
+          <path
+            d="M9 0L16.7942 13.5H1.20577L9 0Z"
+            transform="translate(22 4) rotate(90)"
+            fill="#C5C6B7"
+          />
+          <circle cx="13.5" cy="13.5" r="13" stroke="#C5C6B7" />
+        </svg>
+      )
+    }
     case 'twitter': {
       return (
         <svg
@@ -132,6 +226,7 @@ const Icon = ({ type }) => {
           49 359 125 504 105 199 309 388 514 477 179 77 354 104 546 84z"
             />
             <path
+              className="Match"
               d="M2054 1931 c-16 -10 -45 -37 -64 -60 -19 -24 -125 -135 -235 -247
           l-200 -205 -188 193 c-103 106 -211 219 -241 251 -29 31 -60 57 -69 57 -27 0
           -77 -50 -77 -76 0 -26 92 -134 114 -134 6 0 94 -83 196 -185 l185 -185 -228

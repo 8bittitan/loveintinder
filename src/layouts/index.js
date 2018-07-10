@@ -5,6 +5,10 @@ import Helmet from 'react-helmet'
 import Header from '../components/header/header'
 import './index.styl'
 
+// TODO: Use localStorage so users can keep place of episode
+// TODO: Setup sharing abilities
+// TODO: Setup Google Analytics
+
 class Layout extends Component {
   constructor(props) {
     super(props)
@@ -14,15 +18,26 @@ class Layout extends Component {
       src: '',
     }
 
+    this.pauseAudio = this.pauseAudio.bind(this)
     this.playAudio = this.playAudio.bind(this)
     this.setPlaying = this.setPlaying.bind(this)
   }
 
   setPlaying(id, src) {
-    this.setState({
-      currentlyPlaying: id,
-      src,
-    })
+    const { currentlyPlaying } = this.state
+
+    if (currentlyPlaying && id === currentlyPlaying) {
+      this.playAudio()
+    } else {
+      this.setState({
+        currentlyPlaying: id,
+        src,
+      })
+    }
+  }
+
+  pauseAudio() {
+    this.audioRef.pause()
   }
 
   playAudio() {
@@ -50,8 +65,10 @@ class Layout extends Component {
             socials: data.site.siteMetadata.socials,
             ...this.state,
             setPlaying: this.setPlaying,
+            pausePlaying: this.pauseAudio,
           })}
         </div>
+        {/* TODO: Fix <track> ESlint error */}
         <audio
           src={this.state.src}
           ref={ref => (this.audioRef = ref)}

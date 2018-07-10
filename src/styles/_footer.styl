@@ -2,18 +2,30 @@
 
 .Footer
   background-color: var(--black)
-  height: 150px
+  padding: 1rem 0
+
+  @media screen and (min-width: 420px)
+    height: 150px
 
   &__Container
     display: flex
     align-items: center
     justify-content: space-between
     height: 100%
+    flex-direction: column
+
+    @media screen and (min-width: 420px)
+      flex-direction: row
 
   &__Logo
+    margin-bottom: 1rem
+
     svg
       width: 6rem
       height: 6rem
+
+    @media screen and (min-width: 420px)
+      margin-bottom: 0
 
   &__Social
     display: flex
@@ -26,6 +38,7 @@
       svg
         width: 2rem
         height: 2rem
+        fill: var(--white)
 
       &:hover
         svg
