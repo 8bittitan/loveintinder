@@ -1,6 +1,6 @@
 const nib = require('nib')
 
-module.exports = {
+const config = {
   siteMetadata: {
     title: 'Love In Tinder',
     meta: [
@@ -19,19 +19,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'Love in Tinder',
-        short_name: 'LIT',
-        start_url: '/',
-        background_color: '#C5C6B7',
-        theme_color: '#D0A341',
-        display: 'minimal-ui',
-        icon: 'src/images/logo.png',
-      },
-    },
-    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-stylus',
       options: {
@@ -55,3 +42,21 @@ module.exports = {
     },
   ],
 }
+
+if (process.env.NODE_ENV === 'production') {
+  config.plugins.push({
+    resolve: 'gatsby-plugin-manifest',
+    options: {
+      name: 'Love in Tinder',
+      short_name: 'LIT',
+      start_url: '/',
+      background_color: '#C5C6B7',
+      theme_color: '#D0A341',
+      display: 'minimal-ui',
+      icon: 'src/images/logo.png',
+    },
+  })
+  config.plugins.push('gatsby-plugin-offline')
+}
+
+module.exports = config
