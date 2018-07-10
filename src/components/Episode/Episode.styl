@@ -7,20 +7,22 @@
   border-bottom: 1px solid var(--background)
   transition: box-shadow 0.2s ease-in-out
 
-  &:hover
-    box-shadow: 8px 8px 8px rgba(50, 50, 50, 0.14), -8px 0 8px rgba(50, 50, 50, 0.14)
+  @media screen and (min-width: 420px)
+    &:hover
+      box-shadow: 8px 8px 8px rgba(50, 50, 50, 0.14), -8px 0 8px rgba(50, 50, 50, 0.14)
 
   &__Play,
   &__Pause
     margin-right: 1rem
     cursor: pointer
 
-    &:hover
-      path
-        fill: var(--yellow)
+    @media screen and (min-width: 420px)
+      &:hover
+        path
+          fill: var(--yellow)
 
-      circle
-        stroke: var(--yellow)
+        circle
+          stroke: var(--yellow)
 
   &__Information
     width: 80%
@@ -29,16 +31,22 @@
       font-size: 1rem
       letter-spacing: 1px
       line-height: 1
-      margin-bottom: 0.5rem
+
+      @media screen and (min-width: 420px)
+        margin-bottom: 0.5rem
 
     &__Duration
       font-size: 0.65em
     
     &__Description
-      font-size: 0.65rem
-      letter-spacing: 1px
-      line-height: 0.75rem
-      margin: 0
+      display: none
+
+      @media screen and (min-width: 420px)
+        display: block
+        font-size: 0.65rem
+        letter-spacing: 1px
+        line-height: 0.75rem
+        margin: 0
 
   &__EQ
     margin-left: auto
