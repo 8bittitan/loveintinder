@@ -13,13 +13,16 @@ const EpisodeList = ({
 }) => (
   <div className="EpisodeList">
     {episodes.map(episode => {
-      episode.isPlaying = episode.guid === currentlyPlaying
+      const data = {
+        ...episode,
+        isPlaying: episode.guid === currentlyPlaying,
+      }
 
       return (
         <Episode
           playEpisode={setPlayingEpisode}
           pauseEpisode={pauseCurrentEpisode}
-          episode={episode}
+          episode={data}
           key={episode.guid}
         />
       )
