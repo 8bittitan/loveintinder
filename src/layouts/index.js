@@ -23,21 +23,27 @@ class Layout extends Component {
     this.setPlaying = this.setPlaying.bind(this)
   }
 
-  setPlaying(id, src) {
-    const { currentlyPlaying } = this.state
+  setPlaying(id, audio) {
+    const { currentlyPlaying, src } = this.state
 
-    if (currentlyPlaying && id === currentlyPlaying) {
+    if (!currentlyPlaying && src !== '') {
+      this.setState({
+        currentlyPlaying: id,
+      })
       this.playAudio()
     } else {
       this.setState({
         currentlyPlaying: id,
-        src,
+        src: audio,
       })
     }
   }
 
   pauseAudio() {
     this.audioRef.pause()
+    this.setState({
+      currentlyPlaying: null,
+    })
   }
 
   playAudio() {
