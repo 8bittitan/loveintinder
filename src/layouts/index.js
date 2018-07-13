@@ -26,7 +26,7 @@ class Layout extends Component {
   setPlaying(id, audio) {
     const { currentlyPlaying, src } = this.state
 
-    if (!currentlyPlaying && src !== '') {
+    if (!currentlyPlaying && src !== '' && audio === src) {
       this.setState({
         currentlyPlaying: id,
       })
@@ -40,10 +40,10 @@ class Layout extends Component {
   }
 
   pauseAudio() {
-    this.audioRef.pause()
     this.setState({
       currentlyPlaying: null,
     })
+    this.audioRef.pause()
   }
 
   playAudio() {
@@ -51,6 +51,7 @@ class Layout extends Component {
   }
 
   render() {
+    const { src } = this.state
     const { children, data } = this.props
     return (
       <div>
@@ -75,11 +76,14 @@ class Layout extends Component {
           })}
         </div>
         {/* TODO: Fix <track> ESlint error */}
-        <audio
-          src={this.state.src}
-          ref={ref => (this.audioRef = ref)}
-          onCanPlay={this.playAudio}
-        />
+
+        {src !== '' && (
+          <audio
+            src={src}
+            ref={ref => (this.audioRef = ref)}
+            onCanPlay={this.playAudio}
+          />
+        )}
       </div>
     )
   }

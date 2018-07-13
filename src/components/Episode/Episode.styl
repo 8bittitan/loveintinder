@@ -5,7 +5,12 @@
   align-items: center
   padding: 1rem
   border-bottom: 1px solid var(--background)
-  transition: box-shadow 0.2s ease-in-out
+  background-color: var(--white)
+  position: static
+  top: auto
+  bottom: 0
+  transition: bottom 0.3s ease-in-out, box-shadow 0.2s ease-in-out
+  width: auto
 
   @media screen and (min-width: 420px)
     &:hover
@@ -36,6 +41,7 @@
         margin-bottom: 0.5rem
 
     &__Duration
+      display: inline
       font-size: 0.65em
     
     &__Description
@@ -55,6 +61,24 @@
       fill: var(--background)
 
   &.is-playing
+    position: fixed
+    bottom: 2rem
+    left: 2rem
+    z-index: 10
+    width: 19%
+    box-shadow: 8px 8px 8px rgba(100, 100, 100, 0.14), -8px 0 8px rgba(100, 100, 100, 0.14)
+
+    .Episode__Information
+      &__Title
+        font-size: 0.85rem
+        margin-bottom: 0
+
+      &__Description
+        display: none
+
+      &__Duration
+        display: none
+
     .Episode__EQ path
       animation: glow 1s ease-in-out alternate infinite
 

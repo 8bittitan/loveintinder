@@ -1,7 +1,7 @@
 import React from 'react'
-import Img from 'gatsby-image'
 
 import EpisodeList from '../components/EpisodeList/EpisodeList'
+import Host from '../components/Host/Host'
 import Icon from '../components/Icon/Icon'
 import Masthead from '../components/Masthead/Masthead'
 import Social from '../components/Social/Social'
@@ -25,6 +25,7 @@ const IndexPage = ({
         episode={latestEpisode}
         socials={socials}
         selectEpisode={setPlaying}
+        pausePlaying={pausePlaying}
         isPlaying={currentlyPlaying === latestEpisode.guid}
       />
       {/* END: Masthead */}
@@ -76,35 +77,9 @@ const IndexPage = ({
         <div className="inner-container">
           <h2 className="SectionTitle is-white">About Us</h2>
 
-          <div className="Host">
-            <div className="Avatar">
-              <Img sizes={data.nicProfile.sizes} />
-            </div>
-
-            <div className="Host__Information">
-              <h3 className="Host__Information__Name">Nic Hill</h3>
-              <p className="Host__Information__Description">
-                Lorem ipsum dolor amet small batch ugh aesthetic, cronut squid
-                beard snackwave listicle air plant. Sustainable pickled
-                jianbing, quinoa drinking vinegar copper mug stumptown.
-              </p>
-            </div>
-          </div>
-
-          <div className="Host is-right">
-            <div className="Avatar">
-              <Img sizes={data.sheaProfile.sizes} />
-            </div>
-
-            <div className="Host__Information">
-              <h3 className="Host__Information__Name">Shea Nolin</h3>
-              <p className="Host__Information__Description">
-                Lorem ipsum dolor amet small batch ugh aesthetic, cronut squid
-                beard snackwave listicle air plant. Sustainable pickled
-                jianbing, quinoa drinking vinegar copper mug stumptown.
-              </p>
-            </div>
-          </div>
+          <Host sizes={data.nicProfile.sizes} name="Nic Hill" />
+          <Host sizes={data.sheaProfile.sizes} name="Shea Nolin" isRight />
+          <Host sizes={data.nicProfile.sizes} name="Anna Daves" />
         </div>
       </div>
       {/* END: About Us */}

@@ -1,0 +1,24 @@
+@import "../../styles/_vars.styl"
+
+.Host
+  display: flex
+  margin-bottom: 2rem
+
+  &__Information
+    color: var(--white)
+
+    &__Name
+      font-size: 1.5rem
+      letter-spacing: 1px
+      line-height: 1
+      margin-bottom: 0.5rem
+
+  &.is-right
+    flex-direction: row-reverse
+
+    .Avatar
+      margin-right: 0
+      margin-left: 1rem
+
+    .Host__Information
+      text-align: right

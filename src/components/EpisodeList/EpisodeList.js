@@ -38,6 +38,12 @@ EpisodeList.propTypes = {
     }),
   ).isRequired,
   setPlayingEpisode: PropTypes.func.isRequired,
+  currentlyPlaying: PropTypes.string,
+  pauseCurrentEpisode: PropTypes.func.isRequired,
+}
+
+EpisodeList.defaultProps = {
+  currentlyPlaying: null,
 }
 
 export default EpisodeList

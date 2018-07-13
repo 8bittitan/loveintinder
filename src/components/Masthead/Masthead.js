@@ -4,7 +4,13 @@ import PropTypes from 'prop-types'
 import SocialIcon from '../Icon/SocialIcon'
 import PlayButton from '../PlayButton/PlayButton'
 
-const Masthead = ({ episode, socials, selectEpisode, isPlaying }) => {
+const Masthead = ({
+  episode,
+  socials,
+  selectEpisode,
+  isPlaying,
+  pausePlaying,
+}) => {
   const setCurrentEpisode = () => {
     selectEpisode(episode.guid, episode.enclosure.url)
   }
@@ -27,7 +33,11 @@ const Masthead = ({ episode, socials, selectEpisode, isPlaying }) => {
       <div className="Masthead__Content">
         <h1>{episode.title}</h1>
         <p>{episode.contentSnippet}</p>
-        <PlayButton selectEpisode={setCurrentEpisode} isPlaying={isPlaying} />
+        <PlayButton
+          selectEpisode={setCurrentEpisode}
+          pausePlaying={pausePlaying}
+          isPlaying={isPlaying}
+        />
       </div>
     </div>
   )
@@ -42,6 +52,7 @@ Masthead.propTypes = {
   socials: PropTypes.shape().isRequired,
   selectEpisode: PropTypes.func.isRequired,
   isPlaying: PropTypes.bool.isRequired,
+  pausePlaying: PropTypes.func.isRequired,
 }
 
 export default Masthead
