@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ScrollLink = ({ href, children }) => {
+const ScrollLink = ({ href, children, openCloseNav }) => {
   const scrollToSection = evt => {
     evt.preventDefault()
     const section = evt.target.getAttribute('href')
@@ -9,6 +9,10 @@ const ScrollLink = ({ href, children }) => {
     document.querySelector(section).scrollIntoView({
       behavior: 'smooth',
     })
+
+    if (openCloseNav) {
+      openCloseNav()
+    }
   }
 
   return (
@@ -22,6 +26,11 @@ ScrollLink.propTypes = {
   href: PropTypes.string.isRequired,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
     .isRequired,
+  openCloseNav: PropTypes.func,
+}
+
+ScrollLink.defaultProps = {
+  openCloseNav: false,
 }
 
 export default ScrollLink

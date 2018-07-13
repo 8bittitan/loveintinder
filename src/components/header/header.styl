@@ -24,6 +24,7 @@
 
     @media screen and (min-width: 420px)
       display: flex
+      flex-direction: row
 
     a
       margin-left: 1rem
@@ -31,6 +32,25 @@
 
       &:hover
         color: var(--yellow)
+
+    &.open
+      display: flex
+      align-items: center
+      padding: 3rem 0
+      position: absolute
+      top: 60px
+      bottom: 0
+      left: 0
+      right: 0
+      background-color: var(--black)
+      flex-direction: column
+
+      a
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        padding: 3rem;
+        border-bottom: 1px solid #f1f1f1;
 
   &__Menu
     display: flex
