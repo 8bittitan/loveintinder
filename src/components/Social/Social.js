@@ -4,7 +4,12 @@ import PropTypes from 'prop-types'
 import SocialIcon from '../Icon/SocialIcon'
 
 const Social = ({ link, type }) => (
-  <a href={link} className={`Social__Belt__Item ${type}`}>
+  <a
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className={`Social__Belt__Item ${type}`}
+  >
     <SocialIcon type={type} />
   </a>
 )
@@ -12,7 +17,6 @@ const Social = ({ link, type }) => (
 Social.propTypes = {
   link: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  // image: PropTypes.string.isRequired,
 }
 
 export default Social
