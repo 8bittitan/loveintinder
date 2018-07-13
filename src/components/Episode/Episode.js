@@ -5,6 +5,8 @@ import Icon from '../Icon/Icon'
 
 import './Episode.styl'
 
+// TODO: Turn to mini player when scrolled
+
 class Episode extends Component {
   constructor(props) {
     super(props)

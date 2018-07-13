@@ -25,6 +25,7 @@ const IndexPage = ({
         episode={latestEpisode}
         socials={socials}
         selectEpisode={setPlaying}
+        pausePlaying={pausePlaying}
         isPlaying={currentlyPlaying === latestEpisode.guid}
       />
       {/* END: Masthead */}

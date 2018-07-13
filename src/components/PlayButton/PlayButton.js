@@ -5,9 +5,13 @@ import Icon from '../Icon/Icon'
 
 import './PlayButton.styl'
 
-const PlayButton = ({ selectEpisode, isPlaying }) => {
+const PlayButton = ({ selectEpisode, isPlaying, pausePlaying }) => {
   const onClick = () => {
-    selectEpisode()
+    if (isPlaying) {
+      pausePlaying()
+    } else {
+      selectEpisode()
+    }
   }
 
   return (
@@ -23,6 +27,7 @@ const PlayButton = ({ selectEpisode, isPlaying }) => {
 PlayButton.propTypes = {
   selectEpisode: PropTypes.func.isRequired,
   isPlaying: PropTypes.bool.isRequired,
+  pausePlaying: PropTypes.func.isRequired,
 }
 
 export default PlayButton
