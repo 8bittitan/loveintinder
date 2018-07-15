@@ -20,9 +20,11 @@ class Header extends Component {
   openCloseNav() {
     const { nav } = this.state
 
-    this.setState({
-      nav: nav === 'closed' ? 'open' : 'closed',
-    })
+    if (window.innerWidth <= 420) {
+      this.setState({
+        nav: nav === 'closed' ? 'open' : 'closed',
+      })
+    }
   }
 
   render() {

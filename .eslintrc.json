@@ -3,7 +3,8 @@
   "plugins": ["react", "jsx-a11y", "import"],
   "globals": {
     "graphql": true,
-    "document": true
+    "document": true,
+    "window": true
   },
   "rules": {
     "react/jsx-filename-extension": 0,
